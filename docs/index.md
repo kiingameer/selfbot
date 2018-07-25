@@ -150,6 +150,9 @@ Has a very specific syntax! Be sure to adapt the example!
 <dt><a href="#module_ping">ping</a> ⇒ <code>Message</code></dt>
 <dd><p>Info PingCommand - Checks the bot\&#39;s ping to the Discord server<br><strong>Aliases</strong>: <code>pong</code></p>
 </dd>
+<dt><a href="#module_purge">purge</a> ⇒ <code>MessageEmbed</code></dt>
+<dd><p>Info PurgeCommand - Purge your own messages, given a certain amount (defaults to 5)<br><strong>Aliases</strong>: <code>clear</code>, <code>delete</code>, <code>prune</code></p>
+</dd>
 <dt><a href="#module_Reddit">Reddit</a> ⇒ <code>MessageEmbed</code></dt>
 <dd><p>Info RedditCommand - Gets statistics on a Reddit user<br><strong>Aliases</strong>: <code>red</code>, <code>redditor</code></p>
 </dd>
@@ -761,6 +764,23 @@ Info PingCommand - Checks the bot\'s ping to the Discord server
 
 **Returns**: <code>Message</code> - Ping result  
 **Category**: info  
+<a name="module_purge"></a>
+
+## purge ⇒ <code>MessageEmbed</code>
+Info PurgeCommand - Purge your own messages, given a certain amount (defaults to 5)  
+**Aliases**: `clear`, `delete`, `prune`
+
+**Returns**: <code>MessageEmbed</code> - Confirmation the messages were deleted  
+**Category**: info  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| [AnyNumber] | <code>NumberResolvable</code> | The amount of messages you want to purge |
+
+**Example**  
+```js
+purge 5
+```
 <a name="module_Reddit"></a>
 
 ## Reddit ⇒ <code>MessageEmbed</code>
@@ -1761,11 +1781,11 @@ Info StatusCommand - Change your bot's current status
 
 | Param | Type | Description |
 | --- | --- | --- |
-| AnyStatus | <code>StringResolvable</code> | The status you want to set |
+| StatusToSet | <code>StringResolvable</code> | The status you would like to set for the bot |
 
 **Example**  
 ```js
-status online
+status dnd
 ```
 
 <a name="module_groups"></a>
