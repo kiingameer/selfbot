@@ -5,8 +5,8 @@
  * @module
  * @category status
  * @name status
- * @example status online
- * @param {StringResolvable} AnyStatus The status you want to set
+ * @example status dnd
+ * @param {StringResolvable} StatusToSet The status you would like to set for the bot
  * @returns {MessageEmbed} Confirmation the status was changed
  */
 
@@ -23,6 +23,7 @@ module.exports = class StatusCommand extends Command {
       aliases: ['stat'],
       description: 'Change your bot\'s current status',
       details: '**NOTE**: This does not affect the status you see in your own Discord client! Only the status of the bot instance!',
+      format: 'StatusToSet',
       examples: ['status online'],
       guildOnly: false,
       args: [
