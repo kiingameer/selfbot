@@ -326,6 +326,9 @@ For item names existing of multiple words (for example <code>life orb</code>) yo
 <dt><a href="#module_webhooktoggle">webhooktoggle</a> ⇒ <code>Message</code></dt>
 <dd><p>Settings WebhookToggleCommand - Toggle the Webhook Notification System on or off<br><strong>Aliases</strong>: <code>wht</code>, <code>hooktoggle</code></p>
 </dd>
+<dt><a href="#module_status">status</a> ⇒ <code>MessageEmbed</code></dt>
+<dd><p>Info StatusCommand - Change your bot&#39;s current status<br><strong>NOTE</strong>: This does not affect the status you see in your own Discord client! Only the status of the bot instance!<br><strong>Aliases</strong>: <code>stat</code></p>
+</dd>
 </dl>
 
 <a name="module_copypasta"></a>
@@ -1745,6 +1748,24 @@ Settings WebhookToggleCommand - Toggle the Webhook Notification System on or off
 **Example**  
 ```js
 webhooktoggle on
+```
+<a name="module_status"></a>
+
+## status ⇒ <code>MessageEmbed</code>
+Info StatusCommand - Change your bot's current status  
+**NOTE**: This does not affect the status you see in your own Discord client! Only the status of the bot instance!  
+**Aliases**: `stat`
+
+**Returns**: <code>MessageEmbed</code> - Confirmation the status was changed  
+**Category**: status  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| AnyStatus | <code>StringResolvable</code> | The status you want to set |
+
+**Example**  
+```js
+status online
 ```
 
 <a name="module_groups"></a>
