@@ -262,6 +262,9 @@ For item names existing of multiple words (for example <code>life orb</code>) yo
 <dt><a href="#module_youtube">youtube</a> ⇒ <code>MessageEmbed</code></dt>
 <dd><p>Searches YouTubeCommand - Find a video on YouTube<br>By default returns MessageEmbed. use <code>yts</code> to return just the URL and have in-client playback<br><strong>Aliases</strong>: <code>yt</code>, <code>tube</code>, <code>yts</code></p>
 </dd>
+<dt><a href="#module_createasset">createasset</a> ⇒ <code>MessageEmbed</code></dt>
+<dd><p>Settngs CreateAssetCommand - Create an asset on your Discord Application for Rich Presence<br><strong>Aliases</strong>: <code>uploadasset</code>, <code>ca</code>, <code>ua</code></p>
+</dd>
 <dt><a href="#module_deletecommandmessages">deletecommandmessages</a> ⇒ <code>Message</code></dt>
 <dd><p>Settings DeleteCommandMessagesCommand - Configure whether the bot should delete command messages<br><strong>Aliases</strong>: <code>dcm</code></p>
 </dd>
@@ -1411,6 +1414,23 @@ By default returns MessageEmbed. use `yts` to return just the URL and have in-cl
 **Example**  
 ```js
 youtube Voldemort Origins of the heir
+```
+<a name="module_createasset"></a>
+
+## createasset ⇒ <code>MessageEmbed</code>
+Settngs CreateAssetCommand - Create an asset on your Discord Application for Rich Presence  
+**Aliases**: `uploadasset`, `ca`, `ua`
+
+**Returns**: <code>MessageEmbed</code> - Confirmation the asset was uploaded  
+**Category**: settings  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| AssetSize | <code>large</code> \| <code>small</code> | The size of the image to upload, either `large` or `small` |
+
+**Example**  
+```js
+createasset large imgur
 ```
 <a name="module_deletecommandmessages"></a>
 

@@ -9,8 +9,8 @@
  * @returns {Message} Confirmation the setting was stored
  */
 
-const {Command} = require('discord.js-commando'),
-  {oneLine} = require('common-tags'),
+const {Command} = require('discord.js-commando'), 
+  {oneLine, stripIndents} = require('common-tags'), 
   {deleteCommandMessages} = require('../../util.js');
 
 module.exports = class RPSmallImageCommand extends Command {
@@ -35,60 +35,45 @@ module.exports = class RPSmallImageCommand extends Command {
     });
   }
 
-  /* eslint max-depth: ["error", 5]*/
   async run (msg, {smallimage}) {
     const appID = this.client.provider.get('global', 'rpappid');
 
-    if (appID) {
-      const application = await this.client.fetchApplication(appID);
+    try {
+      const application = await this.client.fetchApplication(appID),
+        assets = await application.fetchAssets(),
+        img = assets.find(asset => asset.name === smallimage);
 
-      if (application) {
-        const assets = await application.fetchAssets();
-
-        if (assets) {
-          const array = [];
-
-          if (assets.length === 0) {
-            return msg.reply(`No assets found in application with ID \`${appID}\``);
-          }
-          for (const i in assets) {
-            if (assets[i].type === 'SMALL') {
-              array.push({
-                id: assets[i].id,
-                name: assets[i].name
-              });
-            }
-          }
-
-          const id = array.find(o => o.id === smallimage), // eslint-disable-line one-var
-            name = array.find(o => o.name === smallimage);
-          let imageID = '';
-
-          if (id) {
-            imageID = id.id;
-          } else if (name) {
-            imageID = name.id;
-          }
-
-          if (!imageID) {
-            return msg.reply(`Can't find \`${smallimage}\` in application with ID \`${appID}\``);
-          }
-
-          this.client.provider.set('global', 'rpsmallimage', imageID);
-					
-          deleteCommandMessages(msg, this.client);
-
-          return msg.reply(oneLine`Your RichPresence Small Image has been set to \`${smallimage}\``);
-        }
-
-        return msg.reply(`No assets found in application with ID \`${appID}\``);
+      if ((/(big)/i).test(img.type)) {
+        throw new Error('incorrect size');
       }
 
-      return msg.reply(oneLine`an error occurred fetching that application. Are you sure the ID is correct? Set it with the \`${msg.guild
-        ? msg.guild.commandPrefix
-        : this.client.commandPrefix}rpappid\`command `);
-    }
+      this.client.provider.set('global', 'rplargeimage', img.id);
 
-    return msg.reply(`You first need to set your application with the \`${msg.guild ? msg.guild.commandPrefix : this.client.commandPrefix}rpappid\` command!`);
+      deleteCommandMessages(msg, this.client);
+
+      return msg.embed({
+        description: stripIndents`__Small Image Stored__
+          **Name:** ${img.name}
+          **ID:** ${img.id}
+          **Size:** ${img.type.toLowerCase()}`,
+        image: {url: `https://cdn.discordapp.com/app-assets/${appID}/${img.id}.png`},
+        color: msg.guild ? msg.member.displayColor : 5759195,
+        timestamps: new Date()
+      });
+    } catch (err) {
+      if ((/(Only bots can use this endpoint)/i).test(err.toString())) {
+        return msg.reply(`You first need to set your application with the \`${msg.guild ? msg.guild.commandPrefix : this.client.commandPrefix}rpappid\` command!`);
+      } else if ((/(incorrect size)/i).test(err.toString())) {
+        return msg.reply(oneLine`
+          That image is a large image, not a small image.
+          Please upload the image with the correct size using \`${msg.guild ? msg.guild.commandPrefix : this.client.commandPrefix}createasset\``);
+      } else if ((/(Cannot read property 'type' of undefined)/i).test(err.toString())) {
+        return msg.reply(oneLine`
+          cannot find \`${smallimage}\` in application \`${appID}\`
+          Please upload the image using \`${msg.guild ? msg.guild.commandPrefix : this.client.commandPrefix}createasset\``);
+      }
+
+      return console.error(err);
+    }
   }
 };
