@@ -47,7 +47,7 @@ module.exports = class RPSmallImageCommand extends Command {
         throw new Error('incorrect size');
       }
 
-      this.client.provider.set('global', 'rplargeimage', img.id);
+      this.client.provider.set('global', 'rpsmallimage', img.id);
 
       deleteCommandMessages(msg, this.client);
 
