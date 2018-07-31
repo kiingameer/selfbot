@@ -65,7 +65,7 @@ module.exports = class rploadCommand extends Command {
         Reload rich presence with: \`${msg.guild ? msg.guild.commandPrefix : this.client.commandPrefix}rpreload\`
         View current data with: \`${msg.guild ? msg.guild.commandPrefix : this.client.commandPrefix}rpdata\`
         `,
-        color: msg.guild ? msg.member.displayColor : 5759195,
+        color: msg.guild ? msg.guild.me.displayColor : 5759195,
         timestamp: new Date()
       });
     } catch (err) {

@@ -26,7 +26,7 @@ module.exports = class rpsaveCommand extends Command {
           prompt: 'What slot to save the data to?',
           type: 'integer',
           default: 'next',
-          validate: v => v > 0 ? true : 'has to be a value greater than 0' // eslint-disable-line no-confusing-arrow
+          validate: v => v > 0 ? true : 'has to be a value greater than 0'
         }
       ]
     });
@@ -64,7 +64,7 @@ module.exports = class rpsaveCommand extends Command {
         Load data with: \`${msg.guild ? msg.guild.commandPrefix : this.client.commandPrefix}rpload\`
         View current data with: \`${msg.guild ? msg.guild.commandPrefix : this.client.commandPrefix}rpdata\`
         `,
-        color: msg.guild ? msg.member.displayColor : 5759195,
+        color: msg.guild ? msg.guild.me.displayColor : 5759195,
         timestamp: new Date()
       });
     } catch (err) {

@@ -57,7 +57,7 @@ module.exports = class RPSmallImageCommand extends Command {
           **ID:** ${img.id}
           **Size:** ${img.type.toLowerCase()}`,
         image: {url: `https://cdn.discordapp.com/app-assets/${appID}/${img.id}.png`},
-        color: msg.guild ? msg.member.displayColor : 5759195,
+        color: msg.guild ? msg.guild.me.displayColor : 5759195,
         timestamp: new Date()
       });
     } catch (err) {

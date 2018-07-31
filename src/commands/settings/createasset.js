@@ -1,5 +1,5 @@
 /**
- * @file Settngs CreateAssetCommand - Create an asset on your Discord Application for Rich Presence  
+ * @file Settings CreateAssetCommand - Create an asset on your Discord Application for Rich Presence  
  * **Aliases**: `uploadasset`, `ca`, `ua`
  * @module
  * @category settings
@@ -34,7 +34,7 @@ module.exports = class CreateAssetCommand extends Command {
           key: 'size',
           prompt: '`large` or `small` image?',
           type: 'string',
-          validate: v => (/(large|big|small)/i).test(v) ? true : 'has to be either `large`, `big` or `small`', // eslint-disable-line no-confusing-arrow
+          validate: v => (/(large|big|small)/i).test(v) ? true : 'has to be either `large`, `big` or `small`',
           parse: (p) => {
             if ((/(large)/i).test(p)) {
               return 'BIG';
@@ -47,7 +47,7 @@ module.exports = class CreateAssetCommand extends Command {
           key: 'image',
           prompt: 'URL of the image to upload?',
           type: 'string',
-          validate: v => (/(https?:\/\/.*\.(?:png|jpg|webp|jpeg))/im).test(v) ? true : 'has to be a valid image URL (supported types: `png`, `jpg`, `jpeg`, `webp`)' // eslint-disable-line no-confusing-arrow, max-len
+          validate: v => (/(https?:\/\/.*\.(?:png|jpg|webp|jpeg))/im).test(v) ? true : 'has to be a valid image URL (supported types: `png`, `jpg`, `jpeg`, `webp`)'
         }
       ]
     });
@@ -69,7 +69,7 @@ module.exports = class CreateAssetCommand extends Command {
           **ID:** ${res.id}
           **Size:** ${res.type === 2 ? 'large' : 'small'}`,
         image: {url: image},
-        color: msg.guild ? msg.member.displayColor : 5759195,
+        color: msg.guild ? msg.guild.me.displayColor : 5759195,
         timestamp: new Date()
       });
     } catch (err) {

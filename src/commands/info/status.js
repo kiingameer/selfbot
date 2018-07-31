@@ -31,7 +31,7 @@ module.exports = class StatusCommand extends Command {
           key: 'status',
           prompt: 'What status do you want to set for the bot?',
           type: 'string',
-          validate: v => ['online', 'idle', 'dnd', 'offline'].includes(v) ? true : 'has to be one of `online`, `idle`, `dnd`, or `offline`' // eslint-disable-line no-confusing-arrow
+          validate: v => ['online', 'idle', 'dnd', 'offline'].includes(v) ? true : 'has to be one of `online`, `idle`, `dnd`, or `offline`'
         }
       ]
     });
@@ -56,7 +56,7 @@ module.exports = class StatusCommand extends Command {
       description: stripIndents`__Bot Status Changed__
         **Previous Status:** ${this.statusParser(prevStatus)}
         **New Status:** ${this.statusParser(status)}`,
-      color: msg.guild ? msg.member.displayColor : 5759195,
+      color: msg.guild ? msg.guild.me.displayColor : 5759195,
       timestamp: new Date()
     });
   }
