@@ -57,7 +57,7 @@ module.exports = class StatusCommand extends Command {
         **Previous Status:** ${this.statusParser(prevStatus)}
         **New Status:** ${this.statusParser(status)}`,
       color: msg.guild ? msg.member.displayColor : 5759195,
-      timestamps: new Date()
+      timestamp: new Date()
     });
   }
 };

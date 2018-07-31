@@ -70,7 +70,7 @@ module.exports = class CreateAssetCommand extends Command {
           **Size:** ${res.type === 2 ? 'large' : 'small'}`,
         image: {url: image},
         color: msg.guild ? msg.member.displayColor : 5759195,
-        timestamps: new Date()
+        timestamp: new Date()
       });
     } catch (err) {
       if ((/(Only bots can use this endpoint)/i).test(err.toString())) {

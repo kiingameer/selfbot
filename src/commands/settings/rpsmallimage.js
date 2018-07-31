@@ -58,7 +58,7 @@ module.exports = class RPSmallImageCommand extends Command {
           **Size:** ${img.type.toLowerCase()}`,
         image: {url: `https://cdn.discordapp.com/app-assets/${appID}/${img.id}.png`},
         color: msg.guild ? msg.member.displayColor : 5759195,
-        timestamps: new Date()
+        timestamp: new Date()
       });
     } catch (err) {
       if ((/(Only bots can use this endpoint)/i).test(err.toString())) {
