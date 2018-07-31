@@ -277,8 +277,8 @@ For item names existing of multiple words (for example <code>life orb</code>) yo
 <dt><a href="#module_rpclear">rpclear</a> ⇒ <code>MessageEmbed</code></dt>
 <dd><p>Settings RPClearCommand - Clear All Rich Presence Data<br><strong>Aliases</strong>: <code>rpc</code></p>
 </dd>
-<dt><a href="#module_rpdata">rpdata</a> ⇒ <code>Message</code></dt>
-<dd><p>Settings RPDataCommand - View your currently set Rich Presence Data<br><strong>Aliases</strong>: <code>rdata</code></p>
+<dt><a href="#module_rpdata">rpdata</a> ⇒ <code>MessageEmbed</code></dt>
+<dd><p>Settings rpdataCommand - View your currently set Rich Presence Data<br><strong>Aliases</strong>: <code>rdata</code></p>
 </dd>
 <dt><a href="#module_rpdetails">rpdetails</a> ⇒ <code>Message</code></dt>
 <dd><p>Settings RPDetailsCommand - Set your Rich Presence details<br><strong>Aliases</strong>: <code>details</code>, <code>rpdetail</code></p>
@@ -289,11 +289,20 @@ For item names existing of multiple words (for example <code>life orb</code>) yo
 <dt><a href="#module_rplargetext">rplargetext</a> ⇒ <code>Message</code></dt>
 <dd><p>Settings RPLargeTextCommand - Set your Rich Presence Large Image Text<br><strong>Aliases</strong>: <code>largetext</code>, <code>ltext</code></p>
 </dd>
+<dt><a href="#module_rpload">rpload</a> ⇒ <code>MessageEmbed</code></dt>
+<dd><p>Settings rploadCommand - Loads a stored Rich Presence data set<br><strong>Aliases</strong>: <code></code></p>
+</dd>
 <dt><a href="#module_RPName">RPName</a> ⇒ <code>Message</code></dt>
 <dd><p>Settings RPNameCommand - Set your Rich Presence Name<br><strong>Aliases</strong>: <code>rname</code></p>
 </dd>
 <dt><a href="#module_rpreload">rpreload</a> ⇒ <code>Message</code></dt>
 <dd><p>Settings RPReloadCommand - Reload and set your Rich Presence<br><strong>Aliases</strong>: <code>setpresence</code>, <code>setrp</code>, <code>rpset</code></p>
+</dd>
+<dt><a href="#module_rpsave">rpsave</a> ⇒ <code>MessageEmbed</code></dt>
+<dd><p>Settings rpsaveCommand - Saves your current rich presence data set</p>
+</dd>
+<dt><a href="#module_rpslotview">rpslotview</a> ⇒ <code>MessageEmbed</code></dt>
+<dd><p>Settings rpslotviewCommand - View the data in a specified slot</p>
 </dd>
 <dt><a href="#module_rpsmallimage">rpsmallimage</a> ⇒ <code>Message</code></dt>
 <dd><p>Settings RPSmallImageCommand - Set your Rich Presence Small Image<br><strong>Aliases</strong>: <code>smallimage</code>, <code>simage</code></p>
@@ -1497,11 +1506,11 @@ Settings RPClearCommand - Clear All Rich Presence Data
 **Category**: settings  
 <a name="module_rpdata"></a>
 
-## rpdata ⇒ <code>Message</code>
-Settings RPDataCommand - View your currently set Rich Presence Data  
+## rpdata ⇒ <code>MessageEmbed</code>
+Settings rpdataCommand - View your currently set Rich Presence Data  
 **Aliases**: `rdata`
 
-**Returns**: <code>Message</code> - Confirmation the setting was stored  
+**Returns**: <code>MessageEmbed</code> - Confirmation the setting was stored  
 **Category**: settings  
 <a name="module_rpdetails"></a>
 
@@ -1554,6 +1563,19 @@ Settings RPLargeTextCommand - Set your Rich Presence Large Image Text
 ```js
 rplargetext what is love
 ```
+<a name="module_rpload"></a>
+
+## rpload ⇒ <code>MessageEmbed</code>
+Settings rploadCommand - Loads a stored Rich Presence data set  
+**Aliases**: ``
+
+**Returns**: <code>MessageEmbed</code> - Confirmation the rich presence data was loaded  
+**Category**: settings  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| SaveSlot | <code>Number</code> | The saved data slot to load |
+
 <a name="module_RPName"></a>
 
 ## RPName ⇒ <code>Message</code>
@@ -1579,6 +1601,30 @@ Settings RPReloadCommand - Reload and set your Rich Presence
 
 **Returns**: <code>Message</code> - Confirmation the rich presence was reloaded  
 **Category**: settings  
+<a name="module_rpsave"></a>
+
+## rpsave ⇒ <code>MessageEmbed</code>
+Settings rpsaveCommand - Saves your current rich presence data set
+
+**Returns**: <code>MessageEmbed</code> - Confirmation the rich presence data was saved  
+**Category**: settings  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| [SaveSlot] | <code>Number</code> | Slot to save to or next possible if not provided |
+
+<a name="module_rpslotview"></a>
+
+## rpslotview ⇒ <code>MessageEmbed</code>
+Settings rpslotviewCommand - View the data in a specified slot
+
+**Returns**: <code>MessageEmbed</code> - Data of the saved slot  
+**Category**: settings  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| SaveSlot | <code>Number</code> | Slot you want to view the data for |
+
 <a name="module_rpsmallimage"></a>
 
 ## rpsmallimage ⇒ <code>Message</code>
