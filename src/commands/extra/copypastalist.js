@@ -34,13 +34,9 @@ module.exports = class CopyPastaListCommand extends Command {
     const conn = new Database(path.join(__dirname, '../../data/databases/pastas.sqlite3'));
 
     try {
-      const list = conn.prepare('SELECT name FROM pastas;').all().map(p => p.name);
+      let list = conn.prepare('SELECT name FROM pastas;').all().map(p => p.name);
 
-      if (list && list.length) {
-        for (const entry in list) {
-          list[entry] = `- \`${list[entry]}\``;
-        }
-      }
+      list = list.map(e => `- \`${e}\``);
 
       deleteCommandMessages(msg, this.client);
 
@@ -52,7 +48,8 @@ module.exports = class CopyPastaListCommand extends Command {
           messages.push(await msg.embed({
             title: 'Available Copypastas',
             description: splitTotal[part],
-            color: msg.guild.me.displayColor
+            color: msg.guild ? msg.guild.me.displayColor : 5759195,
+            timestamp: new Date()
           }));
         }
 
@@ -68,7 +65,7 @@ module.exports = class CopyPastaListCommand extends Command {
     } catch (err) {
       deleteCommandMessages(msg, this.client);
       if ((/(?:no such table)/i).test(err.toString())) {
-        return msg.reply(`no pastas saved yet. Start saving your first with \`${msg.guild.commandPrefix}copypastaadd <name> <content>\``);
+        return msg.reply(`no pastas saved yet. Start saving your first with \`${msg.guild ? msg.guild.commandPrefix : this.client.commandPrefix}copypastaadd\``);
       }
 
       console.error(err);
