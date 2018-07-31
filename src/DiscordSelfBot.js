@@ -124,7 +124,7 @@ class DiscordSelfBot {
         ['leaderboards', 'Leaderboards - View leaderboards from various games'],
         ['pokemon', 'Pokemon - Let Dexter answer your questions'],
         ['extra', 'Extra - Extra! Extra! Read All About It! Only Two Cents!'],
-        ['images', 'Images - Send emojis and memes directly to the chat'],
+        ['images', 'Images - Send any saved images to chat'],
         ['quoting', 'Quoting - Quote other users to really reply to them'],
         ['nsfw', 'NSFW - For all you dirty minds ( ͡° ͜ʖ ͡°)'],
         ['settings', 'Settings - Control the settings the bot has for you']

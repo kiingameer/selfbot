@@ -9,16 +9,12 @@ node_modules/
 
 # Data folders
 src/data/databases/
-src/data/images/emojis/
-src/data/images/memes/
 src/data/pastas/
 
 # Folder keep
 !**/*.gitkeep
 !src/data/databases/*.gitkeep
 !src/data/pastas/*.gitkeep
-!src/data/images/emojis/*.gitkeep
-!src/data/images/memes/*.gitkeep
 
 # IDE Settings
 .vscode/

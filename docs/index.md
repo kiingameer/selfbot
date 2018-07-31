@@ -129,11 +129,15 @@ Has a very specific syntax! Be sure to adapt the example!
 <dt><a href="#module_rps">rps</a> ⇒ <code>MessageEmbed</code></dt>
 <dd><p>Games RockPaperScissorCommand - Play Rock Paper Scissors against random.org randomization<br><strong>Aliases</strong>: <code>rockpaperscissors</code></p>
 </dd>
-<dt><a href="#module_emojis">emojis</a> ⇒ <code>Message</code></dt>
-<dd><p>images EmojisCommand - Sends a png image along with a message to fake sending global emojis<br><strong>Aliases</strong>: <code>emoji</code>, <code>emo</code>, <code>sendemo</code>, <code>emosend</code>, <code>sendemoji</code></p>
+<dt><a href="#module_createimage">createimage</a> ⇒ <code>MessageEmbed</code></dt>
+<dd><p>Images CreateImageCommand - Store an image URL to send with sendimage<br><strong>Aliases</strong>: <code>ci</code>, <code>ui</code>, <code>createimg</code></p>
 </dd>
-<dt><a href="#module_memes">memes</a> ⇒ <code>Message</code></dt>
-<dd><p>images MemesCommand - Sends a jpg image along with a message to easily share your favorite memes<br><strong>Aliases</strong>: <code>mem</code>, <code>maymay</code></p>
+<dt><a href="#module_listimages">listimages</a> ⇒ <code>MessageEmbed</code></dt>
+<dd><p>Images ListsImagesCommand - List all stored images<br><strong>Aliases</strong>: <code>listimg</code>, <code>li</code></p>
+</dd>
+<dt><a href="#module_sendimage">sendimage</a> ⇒ <code>Message</code></dt>
+<dd><p>images SendImageCommand - Sends a stored image<br>Store images with the <code>createimage</code> command
+<strong>Aliases</strong>: <code>si</code>, <code>sendimg</code></p>
 </dd>
 <dt><a href="#module_Activity">Activity</a> ⇒ <code>MessageEmbed</code></dt>
 <dd><p>Info ActivityCommand - Gets the activity (presence) data from a member<br><strong>Aliases</strong>: <code>act</code>, <code>presence</code>, <code>richpresence</code></p>
@@ -263,7 +267,7 @@ For item names existing of multiple words (for example <code>life orb</code>) yo
 <dd><p>Searches YouTubeCommand - Find a video on YouTube<br>By default returns MessageEmbed. use <code>yts</code> to return just the URL and have in-client playback<br><strong>Aliases</strong>: <code>yt</code>, <code>tube</code>, <code>yts</code></p>
 </dd>
 <dt><a href="#module_createasset">createasset</a> ⇒ <code>MessageEmbed</code></dt>
-<dd><p>Settngs CreateAssetCommand - Create an asset on your Discord Application for Rich Presence<br><strong>Aliases</strong>: <code>uploadasset</code>, <code>ca</code>, <code>ua</code></p>
+<dd><p>Settings CreateAssetCommand - Create an asset on your Discord Application for Rich Presence<br><strong>Aliases</strong>: <code>uploadasset</code>, <code>ca</code>, <code>ua</code></p>
 </dd>
 <dt><a href="#module_deletecommandmessages">deletecommandmessages</a> ⇒ <code>Message</code></dt>
 <dd><p>Settings DeleteCommandMessagesCommand - Configure whether the bot should delete command messages<br><strong>Aliases</strong>: <code>dcm</code></p>
@@ -680,41 +684,49 @@ Games RockPaperScissorCommand - Play Rock Paper Scissors against random.org rand
 ```js
 rps Rock
 ```
-<a name="module_emojis"></a>
+<a name="module_createimage"></a>
 
-## emojis ⇒ <code>Message</code>
-images EmojisCommand - Sends a png image along with a message to fake sending global emojis  
-**Aliases**: `emoji`, `emo`, `sendemo`, `emosend`, `sendemoji`
+## createimage ⇒ <code>MessageEmbed</code>
+Images CreateImageCommand - Store an image URL to send with sendimage  
+**Aliases**: `ci`, `ui`, `createimg`
 
-**Returns**: <code>Message</code> - Emoji image and optional content  
+**Returns**: <code>MessageEmbed</code> - Confirmation the image was stored  
 **Category**: images  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| EmojiName | <code>StringResolvable</code> | Name of the emoji to send |
-| [Content] | <code>StringResolvable</code> | Optional content to send along with the emoji |
+| ImageName | <code>StringResolvable</code> | The name of the image |
 
 **Example**  
 ```js
-sendemoji thonk
+createimage pyrrha https://favna.s-ul.eu/CKqAhvM0.png
 ```
-<a name="module_memes"></a>
+<a name="module_listimages"></a>
 
-## memes ⇒ <code>Message</code>
-images MemesCommand - Sends a jpg image along with a message to easily share your favorite memes  
-**Aliases**: `mem`, `maymay`
+## listimages ⇒ <code>MessageEmbed</code>
+Images ListsImagesCommand - List all stored images  
+**Aliases**: `listimg`, `li`
 
-**Returns**: <code>Message</code> - Meme image and optional content  
+**Returns**: <code>MessageEmbed</code> - List of all the images stored by the bot  
+**Category**: images  
+<a name="module_sendimage"></a>
+
+## sendimage ⇒ <code>Message</code>
+images SendImageCommand - Sends a stored image  
+Store images with the `createimage` command
+**Aliases**: `si`, `sendimg`
+
+**Returns**: <code>Message</code> - Image and optional content  
 **Category**: images  
 
 | Param | Type | Description |
 | --- | --- | --- |
-| MemeName | <code>StringResolvable</code> | Name of the meme to send |
-| [Content] | <code>StringResolvable</code> | Optional content to send along with the meme |
+| ImageName | <code>StringResolvable</code> | Name of the image to send |
+| [Content] | <code>StringResolvable</code> | Optional content to send along with the image |
 
 **Example**  
 ```js
-meme cry
+sendimage pyrrha
 ```
 <a name="module_Activity"></a>
 
@@ -1431,7 +1443,7 @@ youtube Voldemort Origins of the heir
 <a name="module_createasset"></a>
 
 ## createasset ⇒ <code>MessageEmbed</code>
-Settngs CreateAssetCommand - Create an asset on your Discord Application for Rich Presence  
+Settings CreateAssetCommand - Create an asset on your Discord Application for Rich Presence  
 **Aliases**: `uploadasset`, `ca`, `ua`
 
 **Returns**: <code>MessageEmbed</code> - Confirmation the asset was uploaded  
