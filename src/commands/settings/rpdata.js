@@ -1,17 +1,17 @@
 /**
- * @file Settings RPDataCommand - View your currently set Rich Presence Data  
+ * @file Settings rpdataCommand - View your currently set Rich Presence Data  
  * **Aliases**: `rdata`
  * @module
  * @category settings
  * @name rpdata
- * @returns {Message} Confirmation the setting was stored
+ * @returns {MessageEmbed} Confirmation the setting was stored
  */
 
-const Discord = require('discord.js'),
-  {Command} = require('discord.js-commando'),
+const {Command} = require('discord.js-commando'), 
+  {MessageEmbed} = require('discord.js'), 
   {deleteCommandMessages} = require('../../util.js');
 
-module.exports = class RPDataCommand extends Command {
+module.exports = class rpdataCommand extends Command {
   constructor (client) {
     super(client, {
       name: 'rpdata',
@@ -25,34 +25,49 @@ module.exports = class RPDataCommand extends Command {
   }
 
   run (msg) {
-    const rpEmbed = new Discord.MessageEmbed();
+    const data = {
+        app: this.client.provider.get('global', 'rpappid') ? this.client.provider.get('global', 'rpappid') : 'None set',
+        name: this.client.provider.get('global', 'rpname') ? this.client.provider.get('global', 'rpname') : 'None set',
+        details: this.client.provider.get('global', 'rpdetails') ? this.client.provider.get('global', 'rpdetails') : 'None set',
+        type: this.client.provider.get('global', 'rptype') ? this.client.provider.get('global', 'rptype') : 'None set',
+        url: this.client.provider.get('global', 'rpurl') ? this.client.provider.get('global', 'rpurl') : 'None set',
+        state: this.client.provider.get('global', 'rpstate') ? this.client.provider.get('global', 'rpstate') : 'None set',
+        largeImage: this.client.provider.get('global', 'rplargeimage') && this.client.provider.get('global', 'rpappid')
+          ? `https://cdn.discordapp.com/app-assets/${this.client.provider.get('global', 'rpappid')}/${this.client.provider.get('global', 'rplargeimage')}.png`
+          : 'https://favna.xyz/images/appIcons/selfbot.png',
+        smallImage: this.client.provider.get('global', 'rpsmallimage') && this.client.provider.get('global', 'rpappid')
+          ? `https://cdn.discordapp.com/app-assets/${this.client.provider.get('global', 'rpappid')}/${this.client.provider.get('global', 'rpsmallimage')}.png`
+          : this.client.user.displayAvatarURL({format: 'png'}),
+        largeImageText: this.client.provider.get('global', 'rplargetext') ? this.client.provider.get('global', 'rplargetext') : 'None set',
+        smallImageText: this.client.provider.get('global', 'rpsmalltext') ? this.client.provider.get('global', 'rpsmalltext') : 'None set',
+        endTimeEnabled: this.client.provider.get('global', 'rptoggletimeend') ? this.client.provider.get('global', 'rptoggletimeend') : 'Disabled',
+        endTimeDuration: this.client.provider.get('global', 'rptimeend') ? this.client.provider.get('global', 'rptimeend') : '1 minute',
+        timestamp: this.client.provider.get('global', 'rptimestamptoggle') ? this.client.provider.get('global', 'rptimestamptoggle') : 'None set',
+        richPresences: this.client.provider.get('global', 'rptoggle') ? this.client.provider.get('global', 'rptoggle') : 'Disabled'
+      },
+      rpEmbed = new MessageEmbed();
 
     rpEmbed
       .setColor(msg.member !== null ? msg.member.displayHexColor : '#7CFC00')
-      .setFooter('Rich Presence data on')
       .setTimestamp()
       .setAuthor(`${this.client.user.tag} (${this.client.user.id})`)
-      .setDescription(this.client.provider.get('global', 'rptoggle', false) ? 'Rich Presence Data' : 'Presence Data')
-      .setThumbnail(this.client.provider.get('global', 'rptoggle', false)
-        ? `https://cdn.discordapp.com/app-assets/${this.client.provider.get('global', 'rpappid')}/${this.client.provider.get('global', 'rpsmallimage')}.png`
-        : this.client.user.displayAvatarURL({format: 'png'}))
-      .setImage(this.client.provider.get('global', 'rptoggle', false)
-        ? `https://cdn.discordapp.com/app-assets/${this.client.provider.get('global', 'rpappid')}/${this.client.provider.get('global', 'rplargeimage')}.png`
-        : 'https://favna.xyz/images/appIcons/selfbot.png')
-      .addField('Name', this.client.provider.get('global', 'rpname', 'None Set'), true)
-      .addField('Type', this.client.provider.get('global', 'rptype', 'None Set'), true)
-      .addField('URL', this.client.provider.get('global', 'rpurl', 'None Set'), true)
-      .addField('State', this.client.provider.get('global', 'rpstate', 'None Set'), true)
-      .addField('Large Image', this.client.provider.get('global', 'rplargeimage', 'None Set'), true)
-      .addField('Small Image', this.client.provider.get('global', 'rpsmallimage', 'None Set'), true)
-      .addField('Large Image Text', this.client.provider.get('global', 'rplargetext', 'None Set'), true)
-      .addField('Small Image Text', this.client.provider.get('global', 'rpsmalltext', 'None Set'), true)
-      .addField('End Time Enabled', this.client.provider.get('global', 'rptoggletimeend', 'Disabled'), true)
-      .addField('End Time Duration', this.client.provider.get('global', 'rptimeend', '1'), true)
-      .addField('Timestamp', this.client.provider.get('global', 'rptimestamptoggle', 'Disabled'), true)
-      .addField('Rich Presences Enabled', this.client.provider.get('global', 'rptoggle', 'Disabled'), true)
-      .addField('Application', this.client.provider.get('global', 'rpappid', 'None Set'), false)
-      .addField('Details', this.client.provider.get('global', 'rpdetails', 'None Set'), false);
+      .setDescription(data.richPresences !== 'Disabled' ? 'Rich Presence Data' : 'Presence Data')
+      .setThumbnail(data.smallImage)
+      .setImage(data.largeImage)
+      .addField('Name', data.name, true)
+      .addField('Type', data.type, true)
+      .addField('URL', data.url, true)
+      .addField('State', data.state, true)
+      .addField('Large Image', `[Click to open](${data.largeImage})`, true)
+      .addField('Small Image', `[Click to open](${data.smallImage})`, true)
+      .addField('Large Image Text', data.largeImageText, true)
+      .addField('Small Image Text', data.smallImageText, true)
+      .addField('End Time Enabled', data.endTimeEnabled, true)
+      .addField('End Time Duration', data.endTimeDuration, true)
+      .addField('Timestamp', data.timestamp, true)
+      .addField('Rich Presences Enabled', data.richPresences, true)
+      .addField('Application', data.app, false)
+      .addField('Details', data.details, false);
 
     deleteCommandMessages(msg, this.client);
 
