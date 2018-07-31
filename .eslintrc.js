@@ -58,8 +58,8 @@ module.exports = {
         "complexity": "error",
         "computed-property-spacing": "error",
         "consistent-return": "error",
-        "consistent-this": ["error", "self", "that", "me", "bot"],
-        "curly": "error",
+        "consistent-this": "off",
+        "curly": ["error", "multi-line", "consistent"],
         "default-case": "error",
         "dot-location": [
             "error",
@@ -83,7 +83,9 @@ module.exports = {
             "error",
             "never"
         ],
-        "func-style": "error",
+        "func-style": ["error", "expression", {
+            "allowArrowFunctions": true
+        }],
         "function-paren-newline": "off",
         "generator-star-spacing": "error",
         "getter-return": "error",
@@ -235,7 +237,10 @@ module.exports = {
         "node/no-unpublished-require": "off",
         "nonblock-statement-body-position": "error",
         "object-curly-newline": ["error", {
-            "ObjectExpression": { "multiline": true, "minProperties": 3 },
+            "ObjectExpression": {
+                "multiline": true,
+                "minProperties": 3
+            },
             "ObjectPattern": "never",
             "ImportDeclaration": "never",
             "ExportDeclaration": "never"
