@@ -105,11 +105,7 @@ module.exports = class MoneyCommand extends Command {
     return string.replace(new RegExp(pattern, 'g'), replacement);
   }
 
-  async run (msg, {
-    value,
-    curOne,
-    curTwo
-  }) {
+  async run (msg, {value, curOne, curTwo}) {
     const rates = await request.get('https://openexchangerates.org/api/latest.json')
       .query('app_id', process.env.oxrkey)
       .query('prettyprint', false)
