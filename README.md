@@ -30,6 +30,10 @@
 
 ***
 
+## Please Note the following
+
+***Discord has removed the "token" from the inspector and it is therefore impossible to get your user token to use for any and all selfbots. Unless you had your token beforehand you can stop looking at this guide as you will be unable to utilize it.***
+
 ## This bot can be deployed with 1 click on Heroku. Click this button:
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
