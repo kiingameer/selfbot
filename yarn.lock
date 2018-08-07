@@ -83,8 +83,8 @@
     to-fast-properties "^2.0.0"
 
 "@types/node@*":
-  version "10.5.2"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-10.5.2.tgz#f19f05314d5421fe37e74153254201a7bf00a707"
+  version "10.5.7"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-10.5.7.tgz#960d9feb3ade2233bcc9843c918d740b4f78a7cf"
 
 accepts@~1.3.5:
   version "1.3.5"
@@ -249,8 +249,10 @@ arrify@^1.0.0, arrify@^1.0.1:
   resolved "https://registry.yarnpkg.com/arrify/-/arrify-1.0.1.tgz#898508da2226f380df904728456849c1501a4b0d"
 
 asn1@~0.2.3:
-  version "0.2.3"
-  resolved "https://registry.yarnpkg.com/asn1/-/asn1-0.2.3.tgz#dac8787713c9966849fc8180777ebe9c1ddf3b86"
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/asn1/-/asn1-0.2.4.tgz#8d2475dfab553bb33e77b54e59e880bb8ce23136"
+  dependencies:
+    safer-buffer "~2.1.0"
 
 assert-plus@1.0.0, assert-plus@^1.0.0:
   version "1.0.0"
@@ -285,8 +287,8 @@ aws-sign2@~0.7.0:
   resolved "https://registry.yarnpkg.com/aws-sign2/-/aws-sign2-0.7.0.tgz#b46e890934a9591f2d2f6f86d7e6a9f1b3fe76a8"
 
 aws4@^1.6.0:
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.7.0.tgz#d4d0e9b9dbfca77bf08eeb0a8a471550fe39e289"
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.8.0.tgz#f0e003d9ca9e7f59c7a508945d7b2ef9a04a542f"
 
 babel-code-frame@^6.26.0:
   version "6.26.0"
@@ -665,8 +667,8 @@ commander@2.15.1:
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.15.1.tgz#df46e867d0fc2aec66a34662b406a9ccafff5b0f"
 
 commander@^2.3.0:
-  version "2.16.0"
-  resolved "https://registry.yarnpkg.com/commander/-/commander-2.16.0.tgz#f16390593996ceb4f3eeb020b31d78528f7f8a50"
+  version "2.17.1"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-2.17.1.tgz#bd77ab7de6de94205ceacc72f1716d29f20a77bf"
 
 common-sequence@^1.0.2:
   version "1.0.2"
@@ -922,20 +924,20 @@ dijkstrajs@^1.0.1:
 
 discord.js-commando@favna/commando#selfbot:
   version "1.1.9-selfbot"
-  resolved "https://codeload.github.com/favna/commando/tar.gz/95861ea33e2d286b859d7bd9569c15491823ebc6"
+  resolved "https://codeload.github.com/favna/commando/tar.gz/e002877ef01b221ccd13427252d9019b610ef5c9"
   dependencies:
     common-tags "^1.0.0"
     escape-string-regexp "^1.0.0"
     require-all "^3.0.0"
 
-discord.js@favna/discord.js#main:
-  version "12.0.5-main"
-  resolved "https://codeload.github.com/favna/discord.js/tar.gz/8b8cdcf75f4025f0611c1e6d1b8c107cfa803d4b"
+discord.js@favna/discord.js#selfbot-stable:
+  version "12.0.5-selfbot-stable"
+  resolved "https://codeload.github.com/favna/discord.js/tar.gz/9125ba206a03480d8c26a76e5c5a42509a79cc28"
   dependencies:
     form-data "^2.3.2"
     node-fetch "^2.1.2"
     pako "^1.0.0"
-    prism-media hydrabolt/prism-media
+    prism-media amishshah/prism-media
     tweetnacl "^1.0.0"
     ws "^4.0.0"
 
@@ -1006,10 +1008,11 @@ draftlog@^1.0.12:
   resolved "https://registry.yarnpkg.com/draftlog/-/draftlog-1.0.12.tgz#7db6a3c5b62106bb32dd4a35d67bcccb6c7d9da0"
 
 ecc-jsbn@~0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/ecc-jsbn/-/ecc-jsbn-0.1.1.tgz#0fc73a9ed5f0d53c38193398523ef7e543777505"
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/ecc-jsbn/-/ecc-jsbn-0.1.2.tgz#3a83a904e54353287874c564b7549386849a98c9"
   dependencies:
     jsbn "~0.1.0"
+    safer-buffer "^2.1.0"
 
 ee-first@1.1.1:
   version "1.1.1"
@@ -1680,8 +1683,8 @@ ignore-walk@^3.0.1:
     minimatch "^3.0.4"
 
 ignore@^4.0.2:
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/ignore/-/ignore-4.0.2.tgz#0a8dd228947ec78c2d7f736b1642a9f7317c1905"
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/ignore/-/ignore-4.0.3.tgz#e2d58c9654d75b542529fa28d80ac95b29e4f467"
 
 imgur@^0.2.1:
   version "0.2.1"
@@ -1741,9 +1744,9 @@ invert-kv@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/invert-kv/-/invert-kv-1.0.0.tgz#104a8e4aaca6d3d8cd157a8ef8bfab2d7a3ffdb6"
 
-ipaddr.js@1.6.0:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/ipaddr.js/-/ipaddr.js-1.6.0.tgz#e3fa357b773da619f26e95f049d055c72796f86b"
+ipaddr.js@1.8.0:
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/ipaddr.js/-/ipaddr.js-1.8.0.tgz#eaa33d6ddd7ace8f7f6fe0c9ca0440e706738b1e"
 
 is-accessor-descriptor@^0.1.6:
   version "0.1.6"
@@ -1937,8 +1940,8 @@ istanbul-lib-hook@^1.1.0:
     append-transform "^0.4.0"
 
 istanbul-lib-instrument@^2.1.0:
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/istanbul-lib-instrument/-/istanbul-lib-instrument-2.3.1.tgz#406406730a395acb2e50f0d98137ace16bd4a970"
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/istanbul-lib-instrument/-/istanbul-lib-instrument-2.3.2.tgz#b287cbae2b5f65f3567b05e2e29b275eaf92d25e"
   dependencies:
     "@babel/generator" "7.0.0-beta.51"
     "@babel/parser" "7.0.0-beta.51"
@@ -2658,8 +2661,8 @@ path-key@^2.0.0, path-key@^2.0.1:
   resolved "https://registry.yarnpkg.com/path-key/-/path-key-2.0.1.tgz#411cadb574c5a140d3a4b1910d40d80cc9f40b40"
 
 path-parse@^1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/path-parse/-/path-parse-1.0.5.tgz#3c1adf871ea9cd6c9431b6ea2bd74a0ff055c4c1"
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/path-parse/-/path-parse-1.0.6.tgz#d62dbb5679405d72c4737ec58600e9ddcf06d24c"
 
 path-to-regexp@0.1.7:
   version "0.1.7"
@@ -2729,9 +2732,9 @@ presage@^0.1.4:
   dependencies:
     babel-runtime "~6.26.0"
 
-prism-media@hydrabolt/prism-media:
+prism-media@amishshah/prism-media:
   version "0.3.1"
-  resolved "https://codeload.github.com/hydrabolt/prism-media/tar.gz/ead016c69b1f341898cb264746c355b982502c62"
+  resolved "https://codeload.github.com/amishshah/prism-media/tar.gz/ead016c69b1f341898cb264746c355b982502c62"
 
 process-nextick-args@~2.0.0:
   version "2.0.0"
@@ -2742,11 +2745,11 @@ progress@^2.0.0:
   resolved "https://registry.yarnpkg.com/progress/-/progress-2.0.0.tgz#8a1be366bf8fc23db2bd23f10c6fe920b4389d1f"
 
 proxy-addr@~2.0.3:
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/proxy-addr/-/proxy-addr-2.0.3.tgz#355f262505a621646b3130a728eb647e22055341"
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/proxy-addr/-/proxy-addr-2.0.4.tgz#ecfc733bf22ff8c6f407fa275327b9ab67e48b93"
   dependencies:
     forwarded "~0.1.2"
-    ipaddr.js "1.6.0"
+    ipaddr.js "1.8.0"
 
 pseudomap@^1.0.2:
   version "1.0.2"
@@ -3005,7 +3008,7 @@ safe-regex@^1.1.0:
   dependencies:
     ret "~0.1.10"
 
-"safer-buffer@>= 2.1.2 < 3", safer-buffer@^2.0.2:
+"safer-buffer@>= 2.1.2 < 3", safer-buffer@^2.0.2, safer-buffer@^2.1.0, safer-buffer@~2.1.0:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
 
@@ -3643,8 +3646,8 @@ uws@^9.14.0:
   resolved "https://registry.yarnpkg.com/uws/-/uws-9.148.0.tgz#56aff36cb95f7594573daff2a21105ec4b764664"
 
 validate-npm-package-license@^3.0.1:
-  version "3.0.3"
-  resolved "https://registry.yarnpkg.com/validate-npm-package-license/-/validate-npm-package-license-3.0.3.tgz#81643bcbef1bdfecd4623793dc4648948ba98338"
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/validate-npm-package-license/-/validate-npm-package-license-3.0.4.tgz#fc91f6b9c7ba15c857f4cb2c5defeec39d4f410a"
   dependencies:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
