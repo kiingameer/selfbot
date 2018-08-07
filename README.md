@@ -30,6 +30,9 @@
 
 ***
 
+# DISCONTINUED!! THIS PROJECT HAS BEEN DISCONTINUED FOR FURTHER UPDATES DUE TO DISCORD DOUBLING DOWN ON SELFBOTS (THAT DO VIOLATE TOS AFTER ALL) AND DISCORDJS REMOVING SELFBOT SUPPORT FROM THEIR LIBRARY (RIGHTFULLY SO). LATEST COMMIT SHOULD REMAIN STABLE!!
+
+
 ## This bot can be deployed with 1 click on Heroku. Click this button:
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
