@@ -51,7 +51,7 @@
     "fuse.js": "^3.2.1",
     "igdb-api-node": "^3.1.7",
     "imgur": "^0.2.1",
-    "lodash": "^4.17.10",
+    "lodash": "^4.17.21",
     "markdown-table": "^1.1.2",
     "moment": "^2.22.2",
     "moment-duration-format": "^2.2.2",
