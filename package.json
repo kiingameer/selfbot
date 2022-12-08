@@ -46,7 +46,7 @@
     "dotenv": "^6.0.0",
     "eightball": "^1.0.1",
     "erlpack": "hammerandchisel/erlpack",
-    "express": "^4.16.3",
+    "express": "^4.17.3",
     "flesch-kincaid": "^1.0.2",
     "fuse.js": "^3.2.1",
     "igdb-api-node": "^3.1.7",
